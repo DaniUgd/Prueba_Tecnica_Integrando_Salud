@@ -129,4 +129,19 @@
         </form>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.querySelector("form");
+        const spinner = document.getElementById("loading-spinner");
+        const submitBtn = form.querySelector("button[type='submit']");
+
+        form.addEventListener("submit", function() {
+            // Mostrar spinner
+            spinner.style.display = "block";
+            // Deshabilitar botón de submit
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = "Guardando...";
+        });
+    });
+</script>
 @endsection
