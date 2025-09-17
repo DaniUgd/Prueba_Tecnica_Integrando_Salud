@@ -25,19 +25,18 @@ Este proyecto implementa un sistema de gestión de **Pacientes**, **Tipos de Pet
    git clone https://github.com/DaniUgd/Prueba_Tecnica_Integrando_Salud.git
    cd Prueba_Tecnica_Integrando_Salud
 2. Levantar los contenedores
-
+ ```bash
 docker compose up -d
-
-
+ ```
 3. Instalar dependencias
-
+```bash
 docker compose run --rm app composer install
-
+```
 
 4. Configurar el entorno
-
+```bash
 docker compose exec app cp .env.example .env
-
+```
 Luego abrir el archivo .env y descomentar (eliminar #) en las siguientes líneas:
 DB_CONNECTION=mysql
 DB_HOST=db
@@ -47,15 +46,15 @@ DB_USERNAME=laravel
 DB_PASSWORD=laravel
 
 5. Generar la key de Laravel
-
+```bash
 docker compose exec app php artisan key:generate
-
+```
 
 6. Ejecutar migraciones y tabla de sesiones
-
+```bash
 docker compose exec app php artisan migrate
 docker compose exec app php artisan session:table
-
+```
 🌐 Acceso a la aplicación
 
 Aplicación Laravel 👉 http://localhost:8000
