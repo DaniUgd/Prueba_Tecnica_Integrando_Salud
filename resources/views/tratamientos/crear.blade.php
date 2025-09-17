@@ -3,9 +3,9 @@
 @section('title', 'Nuevo tratamiento')
 
 @section('content')
-<div class="d-flex justify-content-between align-items-center mb-4">
+<div class="d-flex justify-content-between align-items-center mb-4 ">
     <h1 class="h3">Nuevo tratamiento para {{ $paciente->nombre }} {{ $paciente->apellido }}</h1>
-    <a href="{{ route('pacientes.tratamientos.listar', $paciente->id) }}" class="btn btn-secondary">← Volver</a>
+    <a href="{{ route('pacientes.tratamientos.listar', $paciente->id) }}" class="btn btn-secondary show-spinner">← Volver</a>
 </div>
 
 {{-- Mensajes de error --}}
@@ -23,7 +23,7 @@
 @if($pets->isEmpty())
     <div class="alert alert-warning">
         No hay <strong>Tipos de PET</strong> activos. 
-        <a href="{{ route('tipos-pet.crear') }}">Crear un Tipo de PET</a>
+        <a href="{{ route('tipos-pet.crear') }} " class="show-spinner">Crear un Tipo de PET</a>
     </div>
 @else
     <div class="card shadow">
@@ -61,11 +61,13 @@
                 </div>
 
                 <div class="d-flex justify-content-end">
-                    <a href="{{ route('pacientes.tratamientos.listar', $paciente->id) }}" class="btn btn-secondary me-2">Cancelar</a>
-                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <a href="{{ route('pacientes.tratamientos.listar', $paciente->id) }}" class="btn btn-secondary me-2 show-spinner">Cancelar</a>
+                    <button type="submit" class="btn btn-success show-spinner">Guardar </button>
                 </div>
             </form>
         </div>
     </div>
+
 @endif
+@include('components.spinner')
 @endsection

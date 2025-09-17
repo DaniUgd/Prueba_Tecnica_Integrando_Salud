@@ -125,8 +125,8 @@
 
             {{-- Botones --}}
             <div class="d-flex justify-content-end">
-                <a href="{{ route('pacientes.listar') }}" class="btn btn-secondary me-2">Cancelar</a>
-                <button type="submit" class="btn btn-primary" id="btnGuardar" disabled>Guardar Cambios</button>
+                <a href="{{ route('pacientes.listar') }}" class="btn btn-secondary me-2 show-spinner">Cancelar</a>
+                <button type="submit" class="btn btn-primary show-spinner" id="btnGuardar" disabled>Guardar Cambios</button>
             </div>
         </form>
     </div>
@@ -154,4 +154,5 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
+@include('components.spinner')
 @endsection

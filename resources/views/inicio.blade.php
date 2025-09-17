@@ -5,12 +5,13 @@
     <h1 class="mb-4">Menú Principal</h1>
 
     <div class="list-group">
-        <a href="{{ route('pacientes.listar') }}" class="list-group-item list-group-item-action">
+        <a href="{{ route('pacientes.listar') }}" class="list-group-item list-group-item-action show-spinner">
             Gestión de Pacientes
         </a>
-        <a href="{{ route('tipos-pet.listar') }}" class="list-group-item list-group-item-action">
+        <a href="{{ route('tipos-pet.listar') }}" class="list-group-item list-group-item-action show-spinner">
             Gestión de Tipos de Pet
         </a>
     </div>
 </div>
+@include('components.spinner')
 @endsection

@@ -5,7 +5,7 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="h3">Listado de Tipos de PET</h1>
-    <a href="{{ route('tipos-pet.crear') }}" class="btn btn-success">+ Nuevo Tipo de PET</a>
+    <a href="{{ route('tipos-pet.crear') }}" class="btn btn-success show-spinner">+ Nuevo Tipo de PET</a>
 </div>
 
 {{-- Mensajes --}}
@@ -20,7 +20,7 @@
 <form method="GET" action="{{ route('tipos-pet.listar') }}" class="row g-3 mb-3">
     <h6>Filtrar por Estado</h6>
     <div class="col-md-4">
-        <select name="estado" class="form-select" onchange="this.form.submit()">
+        <select name="estado" class="form-select show-spinner-onchange" onchange="this.form.submit() ">
             <option value="activos" {{ $estado === 'activos' ? 'selected' : '' }}>Activos</option>
             <option value="inactivos" {{ $estado === 'inactivos' ? 'selected' : '' }}>Inactivos</option>
             <option value="todos" {{ $estado === 'todos' ? 'selected' : '' }}>Todos</option>
@@ -59,7 +59,7 @@
                     @endif
                 </td>
                 <td class="text-center">
-                    <a href="{{ route('tipos-pet.editar', $tipo->id) }}" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="{{ route('tipos-pet.editar', $tipo->id) }}" class="btn btn-sm btn-primary show-spinner">Editar</a>
                 </td>
             </tr>
         @empty
@@ -69,6 +69,6 @@
         @endforelse
     </tbody>
 </table>
-<a href="{{ route('inicio') }}" class="btn btn-secondary">← Volver a inicio</a>
-
+<a href="{{ route('inicio') }}" class="btn btn-secondary show-spinner">← Volver a inicio</a>
+@include('components.spinner')
 @endsection

@@ -28,8 +28,7 @@
             </div>
         @endif
 
-        
-        <form action="{{ route('pacientes.guardar') }}" method="POST">
+        <form id="form-paciente" action="{{ route('pacientes.guardar') }}" method="POST">
             @csrf
 
             <div class="mb-3">
@@ -49,8 +48,7 @@
                         else {
                             this.setCustomValidity('El Nombre solo puede contener letras');
                         }"
-                        oninput="this.setCustomValidity('')">
-
+                       oninput="this.setCustomValidity('')">
             </div>
 
             <div class="mb-3">
@@ -70,7 +68,7 @@
                         else {
                             this.setCustomValidity('El Apellido solo puede contener letras');
                         }"
-                        oninput="this.setCustomValidity('')">
+                       oninput="this.setCustomValidity('')">
             </div>
 
             <div class="mb-3">
@@ -83,21 +81,21 @@
                        required
                        pattern="[0-9]+"
                        maxlength="20"
-                       oninvalid=
-                       "if (!this.value) {
+                       oninvalid="
+                       if (!this.value) {
                             this.setCustomValidity('El campo DNI es obligatorio');
                         } 
                         else if (!/^[0-9]+$/.test(this.value)) {
                             this.setCustomValidity('El DNI solo puede contener números');
                         }"
-                        oninput="this.setCustomValidity('')">
+                       oninput="this.setCustomValidity('')">
             </div>      
 
             <div class="mb-3">
                 <label for="sexo" class="form-label">Sexo</label>
                 <select name="sexo" id="sexo" class="form-select" required 
-                oninvalid="this.setCustomValidity('Por favor seleccione una opcion')"
-                oninput="this.setCustomValidity('')">
+                        oninvalid="this.setCustomValidity('Por favor seleccione una opcion')"
+                        oninput="this.setCustomValidity('')">
                     <option value="">Seleccione...</option>
                     <option value="Masculino" {{ old('sexo') == 'Masculino' ? 'selected' : '' }}>Masculino</option>
                     <option value="Femenino" {{ old('sexo') == 'Femenino' ? 'selected' : '' }}>Femenino</option>
@@ -106,15 +104,16 @@
             </div>
           
             <div class="mb-3">
-                <label for="fecha_nacimiento" class="form-label" >Fecha de nacimiento</label>
+                <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento</label>
                 <input type="date" 
                        name="fecha_nacimiento" 
                        id="fecha_nacimiento" 
                        class="form-control" 
                        value="{{ old('fecha_nacimiento') }}" 
                        min="1900-01-01"
-                       max="{{ now() }}"
-                       required oninvalid="this.setCustomValidity('Por favor seleccione una fecha valida entre 01/01/1900 y la fecha de hoy')"
+                       max="{{ now()->format('Y-m-d') }}"
+                       required
+                       oninvalid="this.setCustomValidity('Por favor seleccione una fecha valida entre 01/01/1900 y la fecha de hoy')"
                        oninput="
                        this.setCustomValidity('');
                        if (this.value && this.max && this.value > this.max) {
@@ -123,25 +122,12 @@
             </div>
 
             <div class="d-flex justify-content-end">
-                <a href="{{ route('pacientes.listar') }}" class="btn btn-secondary me-2">Cancelar</a>
+                <a href="{{ route('pacientes.listar') }}" class="btn btn-secondary me-2 show-spinner">Cancelar</a>
                 <button type="submit" class="btn btn-success">Guardar</button>
             </div>
         </form>
     </div>
 </div>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const form = document.querySelector("form");
-        const spinner = document.getElementById("loading-spinner");
-        const submitBtn = form.querySelector("button[type='submit']");
 
-        form.addEventListener("submit", function() {
-            // Mostrar spinner
-            spinner.style.display = "block";
-            // Deshabilitar botón de submit
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = "Guardando...";
-        });
-    });
-</script>
+@include('components.spinner')
 @endsection

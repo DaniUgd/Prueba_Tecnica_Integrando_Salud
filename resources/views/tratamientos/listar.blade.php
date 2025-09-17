@@ -7,7 +7,7 @@
     <h1 class="h3">
         Tratamientos de {{ $paciente->nombre }} {{ $paciente->apellido }}
     </h1>
-    <a href="{{ route('pacientes.tratamientos.crear', $paciente->id) }}"class="btn btn-success">
+    <a href="{{ route('pacientes.tratamientos.crear', $paciente->id) }}"class="btn btn-success show-spinner">
     + Nuevo Tratamiento
     </a>
 </div>
@@ -42,7 +42,7 @@
     </tbody>
 </table>
 
-<a href="{{ route('pacientes.listar') }}" class="btn btn-secondary">← Volver a Pacientes</a>
+<a href="{{ route('pacientes.listar') }}" class="btn btn-secondary show-spinner">← Volver a Pacientes</a>
 
-
+@include('components.spinner')
 @endsection

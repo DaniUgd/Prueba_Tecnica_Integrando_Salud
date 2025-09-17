@@ -66,10 +66,11 @@
             </div>
 
             <div class="d-flex justify-content-end">
-                <a href="{{ route('tipos-pet.listar') }}" class="btn btn-secondary me-2">Cancelar</a>
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <a href="{{ route('tipos-pet.listar') }}" class="btn btn-secondary me-2 show-spinner">Cancelar</a>
+                <button type="submit" class="btn btn-success show-spinner">Guardar</button>
             </div>
         </form>
     </div>
 </div>
+@include('components.spinner')
 @endsection

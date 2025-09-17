@@ -5,7 +5,7 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="h3">Listado de Pacientes</h1>
-    <a href="{{ route('pacientes.crear') }}" class="btn btn-success">+ Nuevo Paciente</a>
+    <a href="{{ route('pacientes.crear') }}" class="btn btn-success show-spinner" >+ Nuevo Paciente</a>
 </div>
 
 {{-- Mensaje de éxito --}}
@@ -29,7 +29,7 @@
     </div>
     <div class="col-md-4 d-flex">
         <button type="submit" class="btn btn-primary me-2">Buscar</button>
-        <a href="{{ route('pacientes.listar') }}" class="btn btn-secondary">Limpiar</a>
+        <a href="{{ route('pacientes.listar') }}" class="btn btn-secondary show-spinner">Limpiar</a>
     </div>
 </form>
 
@@ -54,8 +54,8 @@
                 <td>{{ $paciente->sexo }}</td>
                 <td>{{ $paciente->fecha_nacimiento }}</td>
                 <td class="text-center">
-                    <a href="{{route('pacientes.editar', $paciente->id) }}" class="btn btn-sm btn-primary">Editar</a>
-                    <a href="{{route('pacientes.tratamientos.listar', $paciente->id)}}"class="btn btn-sm btn-info"> Ver tratamientos</a>
+                    <a href="{{ route('pacientes.editar', $paciente->id) }}" class="btn btn-sm btn-primary show-spinner">Editar</a>
+                    <a href="{{ route('pacientes.tratamientos.listar', $paciente->id) }}" class="btn btn-sm btn-info show-spinner">Ver tratamientos</a>
                 </td>
             </tr>
         @empty
@@ -65,5 +65,10 @@
         @endforelse
     </tbody>
 </table>
-<a href="{{ route('inicio') }}" class="btn btn-secondary">← Volver a inicio</a>
+<a href="{{ route('inicio') }}" class="btn btn-secondary show-spinner">← Volver a inicio</a>
+
+
+
+
+@include('components.spinner')
 @endsection
