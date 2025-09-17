@@ -1,3 +1,39 @@
+# Prueba Técnica - Integrando Salud
+
+Este proyecto implementa un sistema de gestión de **Pacientes**, **Tipos de Pet** y **Tratamientos** usando **Laravel 12**, **PHP 8.3** y **MySQL 8**, todo dentro de **Docker Compose**. Ademas se utilizó **HTML**, **CSS** Y **BOOTSTRAP**
+
+Requisitos previos
+
+- [Docker](https://docs.docker.com/get-docker/)  
+- [Docker Compose](https://docs.docker.com/compose/)  
+- (Opcional) [Git](https://git-scm.com/downloads) para clonar el repositorio  
+
+
+## ▶Instrucciones de instalación y ejecución
+
+Clonar el repositorio
+git clone https://github.com/DaniUgd/Prueba_Tecnica_Integrando_Salud.git
+
+
+Ejecutar el comando <docker compose build> dentro de la carpeta <Prueba_Tecnica_Integrando_Salud>
+luego ejecutar los siguientes comandos <docker compose up -d>, luego <docker compose run --rm app composer install>, <docker compose exec app php artisan session:table> y <
+docker compose exec app cp .env.example .env>. Abrir el archivo .env y borrar el carcater # en las siguientes lineas DB_CONNECTION=mysql, DB_HOST=db, DB_PORT=3306, DB_DATABASE=laravel, DB_USERNAME=laravel, DB_PASSWORD=laravel
+docker compose exec app php artisan key:generate
+
+Acceso a la aplicación
+
+Aplicación Laravel 👉 http://localhost:8000
+
+PhpMyAdmin 👉 http://localhost:8080
+
+Servidor: db
+
+Usuario: laravel
+
+Contraseña: laravel
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
