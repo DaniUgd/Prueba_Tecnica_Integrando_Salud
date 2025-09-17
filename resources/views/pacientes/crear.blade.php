@@ -12,7 +12,7 @@
         {{-- Mensajes de error --}}
         @if ($errors->any())
             <div class="alert alert-danger">
-                <strong>Ups!</strong> Hay errores en el formulario:
+                Hay errores en el formulario:
                 <ul class="mb-0">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -28,7 +28,7 @@
             </div>
         @endif
 
-        {{-- Formulario --}}
+        
         <form action="{{ route('pacientes.guardar') }}" method="POST">
             @csrf
 

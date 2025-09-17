@@ -12,7 +12,7 @@
         {{-- Errores --}}
         @if ($errors->any())
             <div class="alert alert-danger">
-                <strong>Ups!</strong> Corrige los errores:
+                Hay errores en el formulario:
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>

@@ -22,7 +22,7 @@
     </div>
 @endif
 
-{{-- Filtros --}}
+{{-- Filtro --}}
 <form method="GET" action="{{ route('pacientes.listar') }}" class="row g-3 mb-3">
     <div class="col-md-8">
         <input type="text" name="search" class="form-control" placeholder="Buscar por DNI o Apellido" value="{{ request('search') }}">

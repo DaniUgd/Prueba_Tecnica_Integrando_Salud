@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 class PacienteController extends Controller
 {
       public function listar(Request $request){
-        $query = Paciente::query();
+            $query = Paciente::query();
 
-        if ($request->filled('search')) {
-            $search = $request->search;
-            $query->where('dni', 'like', '%' . $search . '%')->orWhere('apellido', 'like', '%' . $search . '%');
-        }
-        $pacientes = $query->orderBy('id', 'desc')->get();
-        return view('pacientes.listar', compact('pacientes'));
+            if ($request->filled('search')) {
+                $search = $request->search;
+                $query->where('dni', 'like', '%' . $search . '%')->orWhere('apellido', 'like', '%' . $search . '%');
+            }
+            $pacientes = $query->orderBy('id', 'desc')->get();
+            return view('pacientes.listar', compact('pacientes'));
         }
     public function crear(){
         return view("pacientes.crear");
@@ -27,10 +27,10 @@ class PacienteController extends Controller
             'dni' => 'required|string|max:20|unique:pacientes',
             'sexo' => 'required|string|in:Masculino,Femenino,Otro',
             'fecha_nacimiento' => 'required|date',
-        ]);
-        
-        Paciente::create($validated);
-        return redirect()->route('pacientes.listar')->with('success','Paciente creado Correctamente');
+            ]);
+            
+            Paciente::create($validated);
+            return redirect()->route('pacientes.listar')->with('success','Paciente creado Correctamente');
         
         }
         catch (\Exception $e) {
@@ -81,7 +81,7 @@ class PacienteController extends Controller
         return redirect()->route('pacientes.listar')->with('success', 'Paciente actualizado correctamente.');
       }
       catch (\Exception $e) {
-        \Log::error('Error al crear paciente: '.$e->getMessage(), [
+        \Log::error('Error al actualizar un paciente: '.$e->getMessage(), [
             'trace' => $e->getTraceAsString()
         ]);
         return back()->with('error', 'Ocurrió un error inesperado. Intente nuevamente.')->withInput();

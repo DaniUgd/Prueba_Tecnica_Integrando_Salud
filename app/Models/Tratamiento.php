@@ -10,8 +10,8 @@ class Tratamiento extends Model
     protected $table = 'tratamientos';
 
     protected $fillable = [
-        'pacientes_id',  // FK a pacientes
-        'pets_id',       // FK a pets (tipos de PET)
+        'pacientes_id',  // FK pacientes
+        'pets_id',       // FK pets (tipos de PET)
         'fecha_inicio',
     ];
 
@@ -21,7 +21,7 @@ class Tratamiento extends Model
         return $this->belongsTo(Paciente::class, 'pacientes_id');
     }
 
-    public function pet() // tipo de PET
+    public function pet() 
     {
         return $this->belongsTo(TipoPet::class, 'pets_id');
     }

@@ -46,7 +46,7 @@ class TratamientoController extends Controller
 
             // Crear tratamiento
             Tratamiento::create([
-                'pacientes_id'  => $paciente->id,           // FK según tu migración
+                'pacientes_id'  => $paciente->id,           
                 'pets_id'       => $validated['pets_id'],
                 'fecha_inicio'  => $validated['fecha_inicio'],
             ]);
