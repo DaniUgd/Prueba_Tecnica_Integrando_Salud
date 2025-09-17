@@ -23,7 +23,6 @@ Este proyecto implementa un sistema de gestión de **Pacientes**, **Tipos de Pet
 1. **Clonar el repositorio**  
    ```bash
    git clone https://github.com/DaniUgd/Prueba_Tecnica_Integrando_Salud.git
-   cd Prueba_Tecnica_Integrando_Salud
 2. Levantar los contenedores
  ```bash
 docker compose up -d
