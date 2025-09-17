@@ -1,26 +1,62 @@
-# Prueba Técnica - Integrando Salud
+# 📌 Prueba Técnica – Integrando Salud  
 
-Este proyecto implementa un sistema de gestión de **Pacientes**, **Tipos de Pet** y **Tratamientos** usando **Laravel 12**, **PHP 8.3** y **MySQL 8**, todo dentro de **Docker Compose**. Ademas se utilizó **HTML**, **CSS** Y **BOOTSTRAP**
+Este proyecto implementa un sistema de gestión de **Pacientes**, **Tipos de Pet** y **Tratamientos** utilizando:  
 
-Requisitos previos
+- **Laravel 12**  
+- **PHP 8.3**  
+- **MySQL 8**  
+- **Docker Compose**  
+- **HTML, CSS y Bootstrap**  
 
-- [Docker](https://docs.docker.com/get-docker/)  
+---
+
+## ⚙️ Requisitos previos  
+
+- [Docker](https://www.docker.com/)  
 - [Docker Compose](https://docs.docker.com/compose/)  
-- (Opcional) [Git](https://git-scm.com/downloads) para clonar el repositorio  
+- (Opcional) [Git](https://git-scm.com/) para clonar el repositorio  
+
+---
+
+## ▶️ Instalación y ejecución  
+
+1. **Clonar el repositorio**  
+   ```bash
+   git clone https://github.com/DaniUgd/Prueba_Tecnica_Integrando_Salud.git
+   cd Prueba_Tecnica_Integrando_Salud
+2. Levantar los contenedores
+
+docker compose up -d
 
 
-## ▶Instrucciones de instalación y ejecución
+3. Instalar dependencias
 
-Clonar el repositorio
-git clone https://github.com/DaniUgd/Prueba_Tecnica_Integrando_Salud.git
+docker compose run --rm app composer install
 
 
-Ejecutar el comando <docker compose build> dentro de la carpeta <Prueba_Tecnica_Integrando_Salud>
-luego ejecutar los siguientes comandos <docker compose up -d>, luego <docker compose run --rm app composer install>, <docker compose exec app php artisan session:table> y <
-docker compose exec app cp .env.example .env>. Abrir el archivo .env y borrar el carcater # en las siguientes lineas DB_CONNECTION=mysql, DB_HOST=db, DB_PORT=3306, DB_DATABASE=laravel, DB_USERNAME=laravel, DB_PASSWORD=laravel
+4. Configurar el entorno
+
+docker compose exec app cp .env.example .env
+
+Luego abrir el archivo .env y descomentar (eliminar #) en las siguientes líneas:
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=laravel
+DB_PASSWORD=laravel
+
+5. Generar la key de Laravel
+
 docker compose exec app php artisan key:generate
 
-Acceso a la aplicación
+
+6. Ejecutar migraciones y tabla de sesiones
+
+docker compose exec app php artisan migrate
+docker compose exec app php artisan session:table
+
+🌐 Acceso a la aplicación
 
 Aplicación Laravel 👉 http://localhost:8000
 
@@ -31,7 +67,6 @@ Servidor: db
 Usuario: laravel
 
 Contraseña: laravel
-
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
