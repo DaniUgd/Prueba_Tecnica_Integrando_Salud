@@ -1,4 +1,4 @@
-# 📌 Prueba Técnica – Integrando Salud  
+
 
 Este proyecto implementa un sistema de gestión de **Pacientes**, **Tipos de Pet** y **Tratamientos** utilizando:  
 
